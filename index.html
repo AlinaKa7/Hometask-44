@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .form {
+      max-width: 550px;
+      margin: 0 auto;
+      padding: 30px 0;
+      background-color: rgb(199, 213, 242);
+      border: 2px solid blue;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .header {
+      margin: 0 0 30px 30px;
+    }
+
+    .modal-window {
+      display: flex;
+      flex-direction: column;
+      padding: 0 30px;
+    }
+
+    .user-name, 
+    .surname,
+    .birth-date,
+    .address-item,
+    .phone-number,
+    .email-add {
+      font-style: italic;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .user-name, 
+    .surname,
+    .birth-date,
+    .address-item,
+    .select-block,
+    .phone-number,
+    .email-add {
+      height: 30px;
+      font-size: 16px;
+      border: 1px solid blue;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .address-item {
+      height: 50px;
+    }
+
+    .select-block {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .gender-block {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 30px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    .lang-block {
+      font-size: 16px;
+      border: 1px solid blue;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: white;
+    }
+
+    .button-block {
+      display: flex;
+      justify-content: center;
+    }
+
+    .button {
+      width: 200px;
+      height: 40px;
+      padding: 10px 0;
+      border-radius: 10px;
+      border: 5px;
+      background-color: rgb(28, 90, 172);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: rgb(238, 241, 248);
+      color: black;
+      border: 1px solid rgb(28, 90, 172);
+    }
+
+    .table-container {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+      table-layout: fixed; 
+    }
+
+    .table thead th {
+      background-color: #c6c5ec;
+      padding: 10px;
+      text-align: left;
+      border: 1px solid #530bec;
+      width: 150px;
+    }
+
+    .table tbody tr {
+      background-color: #e0f1f6;
+    }
+
+    .table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form class="form" name="main">
+      <h1 class="header">Registration Form</h1>
+      <div class="modal-block" id="modal">
+        <div class="modal-window">
+          <input type="text" id="name" placeholder="First name" class="user-name">
+          <input type="text" id="surname" placeholder="Surname" class="surname">
+          <input type="text" name="bdate" id="birth-date" placeholder="Date of birth: DD/MM/YYYY" onfocus="this.type='date'" onblur="this.type='text'" class="birth-date">
+          <div class="gender-block">
+            <p >Choose your gender</p>
+            <div>
+              <input type="radio" name="gender" id="male" checked class="gender-item">
+              <label for="male">Male</label>
+              <input type="radio" name="gender" id="female" class="gender-item">
+              <label for="female">Female</label>          
+            </div>
+          </div>
+          <select name="select" id="city" class="select-block">
+            <option disabled="disabled" selected="selected" value="user-city" class="select-city">Choose your city</option>
+          </select>
+          <textarea name="address-place" id="address" cols="30" rows="4" placeholder="Write your address" class="address-item"></textarea>
+          <fieldset class="lang-block">
+            <legend>Choose languages you know</legend>
+            <div>
+              <input type="checkbox" name="language" id="ukrainian" value="ukrainian" class="language"> 
+              <label for="ukrainian">Ukrainian</label>
+            </div>
+            <div>
+              <input type="checkbox" name="language" id="english" value="english" class="language"> 
+              <label for="english">English</label>
+            </div>
+            <div>
+              <input type="checkbox" name="language" id="german" value="german" class="language"> 
+              <label for="german">German</label>
+            </div>
+            <div>
+              <input type="checkbox" name="language" id="polish" value="polish" class="language"> 
+              <label for="polish">Polish</label>
+            </div>
+          </fieldset>
+          <input type="text" id="phone" placeholder="Enter your phone number with '+' and code" class="phone-number">
+          <input type="text" id="email" placeholder="Enter your email" class="email-add">
+          <div class="button-block">
+            <button type="button" id="submit-btn" class="button">Click to submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="table-container">
+    <table id="table" class="table"></table>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
